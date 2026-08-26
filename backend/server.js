@@ -4,7 +4,7 @@ import connectDB from "./database/db.js";
 import userRoute from "./routes/userRoute.js";
 import productRoute from "./routes/productRoute.js";
 import cartRoute from "./routes/cartRoute.js";
-import orderRoute from "./routes/orderRoute.js"
+import orderRoute from "./routes/orderRoute.js";
 import cors from "cors";
 
 const app = express();
@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://e-commerce-4b4h.onrender.com",
     credentials: true,
   }),
 );
