@@ -16,14 +16,14 @@ export const isAuthenticated = async (req, res, next) => {
       decoded = jwt.verify(token, process.env.SECRET_KEY);
     } catch (error) {
       if (error.name === "TokenExpiredError") {
-        return res.status(400).json({
+        return res.status(401).json({
           success: false,
-          message: "The registration token has expired",
+          message: "Access token has expired. Please login again.",
         });
       }
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
-        message: "Access token is missing or invalid",
+        message: "Authorization token is missing or invalid",
       });
     }
     const user = await User.findById(decoded.id);

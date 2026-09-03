@@ -30,6 +30,11 @@ const VerifyEmail = () => {
     }
   };
   useEffect(() => {
+    if (!token) {
+      setStatus("❌ Verification token not found");
+      return;
+    }
+
     verifyEmail();
   }, [token]);
   return (
