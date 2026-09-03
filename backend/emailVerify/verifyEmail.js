@@ -16,12 +16,12 @@ export const verifyEmail = (token, email) => {
     subject: "Email Verification",
     text: `Hi! There, You have recently visited our website and entered your email.
     Please follow the given link to verify your email
-    http://localhost:5173/verify/${token}
+    https://e-commerce-1-xl2n.onrender.com/verify/${token}
     Thanks`,
   };
 
   transporter.sendMail(mailConfigurations, function (error, info) {
-    if(error) throw Error(error);
+    if (error) throw Error(error);
     console.log("Email Sent Successfully");
     console.log(info);
   });
