@@ -32,7 +32,7 @@ export const register = async (req, res) => {
     const token = jwt.sign({ id: newUser._id }, process.env.SECRET_KEY, {
       expiresIn: "10m",
     });
-    await verifyEmail(token, email); //send email here
+    verifyEmail(token, email); //send email here
     newUser.token = token;
     await newUser.save();
     return res.status(201).json({
@@ -108,7 +108,7 @@ export const reVerify = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
       expiresIn: "10m",
     });
-    await verifyEmail(token, email);
+    verifyEmail(token, email);
     user.token = token;
     await user.save();
     return res.status(200).json({
@@ -379,8 +379,7 @@ export const updateUser = async (req, res) => {
   try {
     const userIdToUpdate = req.params.id; // the ID the user we want to update
     const loggedInUser = req.user; //from isAuthenticated middleware
-    const { firstName, lastName, city, address, zipCode, phoneNo, role } =
-      req.body;
+    const { firstName, lastName, city, address, zipCode, phoneNo, role,} = req.body;
 
     if (
       loggedInUser._id.toString() !== userIdToUpdate &&
@@ -422,8 +421,9 @@ export const updateUser = async (req, res) => {
           },
         );
         stream.end(req.file.buffer);
-      });
-
+      }
+    );
+      
       profilePicUrl = uploadResult.secure_url;
       profilePicPublicId = uploadResult.public_id;
     }

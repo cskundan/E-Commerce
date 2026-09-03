@@ -56,10 +56,9 @@ const Signup = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.response?.data?.message || "Unable to connect to the server");
-    }finally{
-    setLoading(false);
+      toast.error(error.response.data.message);
     }
+    setLoading(false);
   };
   return (
     <div className="flex justify-center items-center min-h-screen bg-pink-100">
