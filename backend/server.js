@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://e-commerce-4b4h.onrender.com",
+    origin: "https://e-commerce-1-xl2n.onrender.com",
     credentials: true,
   }),
 );
