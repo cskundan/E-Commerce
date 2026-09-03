@@ -42,7 +42,7 @@ const Signup = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `http://localhost:8000/api/v1/user/register`,
+        `https://e-commerce-4b4h.onrender.com/api/v1/user/register`,
         formData,
         {
           headers: {
@@ -144,7 +144,14 @@ const Signup = () => {
             type="submit"
             className="w-full cursor-pointer bg-pink-600 hover:bg-pink-800"
           >
-            {loading? <><Loader2 className="h-4 w-4 animate-spin mr-2"/>Please wait</>:'Signup'}
+            {loading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                Please wait
+              </>
+            ) : (
+              "Signup"
+            )}
           </Button>
           <p className="text-gray-700 text-sm">
             Already have an account?{" "}

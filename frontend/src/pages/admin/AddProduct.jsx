@@ -64,7 +64,7 @@ const AddProduct = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/product/add",
+        "https://e-commerce-4b4h.onrender.com/api/v1/product/add",
         formData,
         {
           headers: {

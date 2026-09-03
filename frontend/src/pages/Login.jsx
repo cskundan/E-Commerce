@@ -42,7 +42,7 @@ const Login = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `http://localhost:8000/api/v1/user/login`,
+        `https://e-commerce-4b4h.onrender.com/api/v1/user/login`,
         formData,
         {
           headers: {
@@ -50,7 +50,7 @@ const Login = () => {
           },
         },
       );
-      console.log("res data", res.data)
+      console.log("res data", res.data);
       if (res.data.success) {
         navigate("/");
         dispatch(setUser(res.data.user));

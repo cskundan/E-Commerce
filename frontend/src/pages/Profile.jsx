@@ -82,7 +82,7 @@ const Profile = () => {
       }
 
       const res = await axios.put(
-        `http://localhost:8000/api/v1/user/update/${userId}`,
+        `https://e-commerce-4b4h.onrender.com/api/v1/user/update/${userId}`,
         formData,
         {
           headers: {

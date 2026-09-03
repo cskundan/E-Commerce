@@ -62,7 +62,7 @@ const UserInfo = () => {
       }
 
       const res = await axios.put(
-        `http://localhost:8000/api/v1/user/update/${userId}`,
+        `https://e-commerce-4b4h.onrender.com/api/v1/user/update/${userId}`,
         formData,
         {
           headers: {
@@ -242,8 +242,13 @@ const UserInfo = () => {
               <div className="flex gap-3 items-center">
                 <Label className="block text-sm font-medium"> Rol:-</Label>
 
-                <RadioGroup value = {updateUser?.role} 
-                onValueChange = {(value) => setUpdateUser({...updateUser, role:value})} className="flex items-center">
+                <RadioGroup
+                  value={updateUser?.role}
+                  onValueChange={(value) =>
+                    setUpdateUser({ ...updateUser, role: value })
+                  }
+                  className="flex items-center"
+                >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="user" id="user" />
                     <Label htmlFor="user">User</Label>

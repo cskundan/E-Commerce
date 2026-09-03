@@ -27,7 +27,7 @@ const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const API = "http://localhost:8000/api/v1/cart";
+  const API = "https://e-commerce-4b4h.onrender.com/api/v1/cart";
   const accessToken = localStorage.getItem("accessToken");
 
   const loadCart = async () => {
@@ -39,7 +39,7 @@ const Cart = () => {
       });
 
       if (res.data.success) {
-        dispatch(setCart(res.data.cart))
+        dispatch(setCart(res.data.cart));
       }
     } catch (error) {
       console.log(error);
@@ -86,8 +86,8 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    loadCart()
-  }, [dispatch] )
+    loadCart();
+  }, [dispatch]);
 
   return (
     <div className="pt-20 bg-gray-50 min-h-screen">
@@ -208,7 +208,10 @@ const Cart = () => {
                       <Button variant="outline">Apply</Button>
                     </div>
 
-                    <Button onClick={() => navigate('/address')} className="w-full bg-pink-600 hover:bg-pink-700">
+                    <Button
+                      onClick={() => navigate("/address")}
+                      className="w-full bg-pink-600 hover:bg-pink-700"
+                    >
                       PLACE ORDER
                     </Button>
 

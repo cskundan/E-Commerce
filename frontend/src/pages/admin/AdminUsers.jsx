@@ -17,7 +17,7 @@ const AdminUsers = () => {
 
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/v1/user/all-user",
+        "https://e-commerce-4b4h.onrender.com/api/v1/user/all-user",
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -94,7 +94,9 @@ const AdminUsers = () => {
                 </Button>
 
                 <Button
-                  onClick={() => navigate(`/dashboard/users/orders/${user?._id}`)}
+                  onClick={() =>
+                    navigate(`/dashboard/users/orders/${user?._id}`)
+                  }
                 >
                   <Eye />
                   Show Order
